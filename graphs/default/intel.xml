@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+<description>
+Intel Math Kernel Library
+https://software.intel.com/en-us/intel-mkl
+</description>
+
+<copyright>
+Copyright (c) 2000 - 2014 The Regents of the University of California.
+All rights reserved. Rocks(r) v5.1 www.rocksclusters.org
+</copyright>
+
+<edge from="client">
+  <to>mkl-common</to>
+</edge>
+<order head="client">
+  <tail>mkl-common</tail>
+</order>
+
+</graph>
