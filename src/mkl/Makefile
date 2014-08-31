@@ -56,7 +56,6 @@
 #
 # $Log$
 
-PKGROOT     = /opt/intel
 REDHAT.ROOT = $(CURDIR)/../../
 RPM.EXTRAS  = %define __os_install_post /usr/lib/rpm/brp-compress
 
@@ -73,10 +72,10 @@ install::
 	  mkdir -p $(REDHAT.ROOT)/RPMS/x86_64; \
 	fi
 	( \
-	  if test -e $(SOURCE)/rpms; then \
-	    RPATH=$(SOURCE)/rpms; \
-	  elif test -e $(SOURCE)/rpm; then  \
-	    RPATH=$(SOURCE)/rpm; \
+	  if test -e $(SOURCE_DIR)/rpms; then \
+	    RPATH=$(SOURCE_DIR)/rpms; \
+	  elif test -e $(SOURCE_DIR)/rpm; then  \
+	    RPATH=$(SOURCE_DIR)/rpm; \
 	  fi; \
 	  if test `ls $${RPATH}|grep -c noarch` -gt 0; then \
 	    cp $${RPATH}/*noarch*rpm $(REDHAT.ROOT)/RPMS/noarch; \
