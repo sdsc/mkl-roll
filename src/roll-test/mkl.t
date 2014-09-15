@@ -158,19 +158,14 @@ if($appliance =~ /$installedOnAppliancesPattern/) {
 SKIP: {
 
   skip 'mkl not installed', 6 if ! $isInstalled;
-  my $modulesInstalled = -f '/etc/profile.d/modules.sh';
-  my $setup = $modulesInstalled ?
-              ". /etc/profile.d/modules.sh; module load gnu mkl" :
-              'echo > /dev/null'; # noop
 
-  $output = `$setup; gcc -o $TESTFILE.mkl.exe $TESTFILE.mkl.c -I\${MKL_ROOT}/include -L\${MKL_ROOT}/intel64/lib -lmkl_gf_lp64 -lmkl_core -lmkl_gnu_thread -lpthread -lm -lgomp 2>&1`;
+  $output = `module load gnu mkl; gcc -o $TESTFILE.mkl.exe $TESTFILE.mkl.c -I\${MKL_ROOT}/include -L\${MKL_ROOT}/intel64/lib -lmkl_gf_lp64 -lmkl_core -lmkl_gnu_thread -lpthread -lm -lgomp 2>&1`;
   ok($? == 0, 'gnu compiler works w/mkl');
-  $output = `$setup; ./$TESTFILE.mkl.exe 5`;
+  $output = `module load gnu mkl; ./$TESTFILE.mkl.exe 5`;
   ok($? == 0, 'mkl program runs');
   like($output, qr/115\s+150\s+185\s+220\s+255/,
                 'mkl program correct output');
 
-  skip 'modules not installed', 3 if ! $modulesInstalled;
   `/bin/ls /opt/modulefiles/applications/mkl/[0-9.]* 2>&1`;
   ok($? == 0, 'mkl module installed');
   `/bin/ls /opt/modulefiles/applications/mkl/.version.[0-9.]* 2>&1`;
