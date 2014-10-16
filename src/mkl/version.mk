@@ -1,16 +1,16 @@
 NAME           = mkl
-VERSION        = 11.1.2.144
+VERSION        = 11.2.0.090
 RELEASE        = 0
 PKGROOT        = /opt/intel
 
 SRC_SUBDIR     = mkl
 
 SOURCE_NAME    = l_mkl
-SOURCE_SUFFIX  = tar.gz
+SOURCE_SUFFIX  = tgz
 SOURCE_VERSION = $(VERSION)
 SOURCE_PKG     = $(SOURCE_NAME)_$(SOURCE_VERSION).$(SOURCE_SUFFIX)
 SOURCE_DIR     = $(SOURCE_PKG:%.$(SOURCE_SUFFIX)=%)
 
-TAR_GZ_PKGS    = $(SOURCE_PKG)
+TGZ_PKGS       = $(SOURCE_PKG)
 
 RPM.EXTRAS     = AutoReq:No

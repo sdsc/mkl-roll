@@ -9,6 +9,6 @@ VERSION_SRC = $(REDHAT.ROOT)/src/$(PACKAGE)/version.mk
 VERSION_INC = version.inc
 include $(VERSION_INC)
 
-INTELVERS   = 2013_sp1.2.144
+INTELVERS   = 2015.0.090
 
 RPM.EXTRAS  = AutoReq:No
