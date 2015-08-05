@@ -1,5 +1,7 @@
 # SDSC "mkl" roll
 
+The mkl-roll is deprecated and has been replaced by the [intel-roll](https://github.com/sdsc/intel-roll), built with ROLLNAME=mkl.
+
 ## Overview
 
 This roll bundles the installation of Intel(r) Math Kernel Libraries which are
